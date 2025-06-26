@@ -1,9 +1,13 @@
+using Google.Protobuf.WellKnownTypes;
+
 namespace workDefter
 {
     public partial class loginPage : Form
     {
 
         dbConnection db;
+
+        userDetails user;
 
         public loginPage()
         {
@@ -19,14 +23,27 @@ namespace workDefter
         {
             string mail = mailInput.Text.Trim();
             string sifre = passwordInput.Text;
-            if (db.kullaniciKontrol(mail,sifre))
+            if (db.kullaniciKontrol(mail, sifre))
             {
-                
+                errorMessageLabel.Visible = false;
+                user = db.kullaniciGetir(mail, sifre);
+                dashboardUser dashboard = new dashboardUser(user, this);
+                this.Hide();
+                dashboard.FormClosed += (s, args) => this.Close();
+                dashboard.Show();
             }
             else
             {
-                MessageBox.Show("Giriþ Baþarýsýz! Lütfen kullanýcý adý ve þifrenizi kontrol edin.");
+                errorMessageLabel.Visible = true;
             }
+        }
+
+        private void kayitOl_Click(object sender, EventArgs e)
+        {
+            register registerForm = new register(this);
+            this.Hide();
+            registerForm.FormClosed += (s, args) => this.Show();
+            registerForm.Show();
         }
     }
 }

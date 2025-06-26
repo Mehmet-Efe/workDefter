@@ -34,13 +34,15 @@
             passwordInput = new TextBox();
             girisYap = new Button();
             kayitOl = new Button();
+            label3 = new Label();
+            errorMessageLabel = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
-            label1.Location = new Point(73, 131);
+            label1.Location = new Point(110, 130);
             label1.Name = "label1";
             label1.Size = new Size(83, 15);
             label1.TabIndex = 0;
@@ -50,7 +52,7 @@
             // 
             label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
-            label2.Location = new Point(120, 172);
+            label2.Location = new Point(157, 171);
             label2.Name = "label2";
             label2.Size = new Size(36, 15);
             label2.TabIndex = 1;
@@ -59,7 +61,7 @@
             // mailInput
             // 
             mailInput.Anchor = AnchorStyles.Top;
-            mailInput.Location = new Point(162, 128);
+            mailInput.Location = new Point(199, 127);
             mailInput.Name = "mailInput";
             mailInput.Size = new Size(245, 23);
             mailInput.TabIndex = 2;
@@ -67,7 +69,7 @@
             // passwordInput
             // 
             passwordInput.Anchor = AnchorStyles.Top;
-            passwordInput.Location = new Point(162, 169);
+            passwordInput.Location = new Point(199, 168);
             passwordInput.Name = "passwordInput";
             passwordInput.PasswordChar = '•';
             passwordInput.Size = new Size(245, 23);
@@ -75,7 +77,8 @@
             // 
             // girisYap
             // 
-            girisYap.Location = new Point(380, 408);
+            girisYap.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            girisYap.Location = new Point(473, 357);
             girisYap.Name = "girisYap";
             girisYap.Size = new Size(75, 23);
             girisYap.TabIndex = 4;
@@ -85,24 +88,53 @@
             // 
             // kayitOl
             // 
-            kayitOl.Location = new Point(12, 408);
+            kayitOl.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            kayitOl.Location = new Point(12, 357);
             kayitOl.Name = "kayitOl";
             kayitOl.Size = new Size(75, 23);
             kayitOl.TabIndex = 5;
             kayitOl.Text = "Kayıt Ol";
             kayitOl.UseVisualStyleBackColor = true;
+            kayitOl.Click += kayitOl_Click;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label3.Location = new Point(106, 40);
+            label3.Name = "label3";
+            label3.Size = new Size(347, 56);
+            label3.TabIndex = 6;
+            label3.Text = "workDefter'e Hoşgeldiniz.\nSizi aramızda görmekten mutluyuz.";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // errorMessageLabel
+            // 
+            errorMessageLabel.Anchor = AnchorStyles.Top;
+            errorMessageLabel.AutoSize = true;
+            errorMessageLabel.ForeColor = Color.Firebrick;
+            errorMessageLabel.Location = new Point(263, 205);
+            errorMessageLabel.Name = "errorMessageLabel";
+            errorMessageLabel.Size = new Size(104, 15);
+            errorMessageLabel.TabIndex = 7;
+            errorMessageLabel.Text = "Hatalı Giriş Bilgisi !";
+            errorMessageLabel.Visible = false;
             // 
             // loginPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(467, 443);
-            Controls.Add(kayitOl);
+            ClientSize = new Size(560, 392);
+            Controls.Add(errorMessageLabel);
+            Controls.Add(label3);
             Controls.Add(girisYap);
             Controls.Add(passwordInput);
             Controls.Add(mailInput);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(kayitOl);
+            MinimumSize = new Size(370, 410);
             Name = "loginPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Work Defter";
@@ -119,5 +151,7 @@
         private TextBox passwordInput;
         private Button girisYap;
         private Button kayitOl;
+        private Label label3;
+        private Label errorMessageLabel;
     }
 }
