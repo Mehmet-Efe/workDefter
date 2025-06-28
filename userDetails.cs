@@ -1,12 +1,14 @@
 ﻿public record userDetails
 {
     public string Name { get; init; }
+    public string surName { get; init; }
     public string Mail { get; init; }
     public DateTime BirthDate { get; init; }
     public string userLevel { get; init; }
     public userDetails(string name, string surname, string mail, string birthDate, int userLevel)
     {
-        Name = name + " " + surname;
+        Name = name;
+        surName = surname;
         Mail = mail;
         BirthDate = DateTime.ParseExact(birthDate, "d.M.yyyy HH:mm:ss", null);
         this.userLevel = userLevel switch

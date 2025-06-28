@@ -26,6 +26,9 @@ namespace workDefter
             db = dbConnection.Instance;
 
             this.Text = "Dashboard - " + currentUser.Name;
+
+            userName.Text = currentUser.Name;
+            surname.Text = currentUser.surName;
         }
     }
 }
